@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { tasksGet, taskDelete } from "../redux/actions/taskActions";
+import { tasksGet, taskDelete, taskUpdate } from "../redux/actions/taskActions";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Tasks = (props) => {
@@ -48,6 +48,9 @@ const Tasks = (props) => {
         <TableBody>
           {tasks.map((v, i) => (
             <TableRow
+              style={{
+                backgroundColor: v.completed ? "#C1F4C5" : "#FF000030",
+              }}
               key={i}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
@@ -58,14 +61,21 @@ const Tasks = (props) => {
               <TableCell align="center">{v.description}</TableCell>
               <TableCell align="center">
                 <Checkbox
-                  control={<Checkbox defaultChecked />}
+                  onClick={() => {
+                    props.taskUpdate(v.id, {
+                      title: v.title,
+                      description: v.description,
+                      completed: v.completed ? false : true,
+                    });
+                  }}
+                  checked={v.completed}
                   size="medium"
                 ></Checkbox>
               </TableCell>
               <TableCell align="center">
                 <IconButton
                   onClick={() => {
-                    props.taskDelete(v.id, dispatch);
+                    props.taskDelete(v.id);
                   }}
                   color="error"
                   aria-label="delete"
@@ -85,6 +95,6 @@ const Tasks = (props) => {
 const mapStateToProps = ({ taskReducer, languageReducer }) => {
   return { taskReducer, languageReducer };
 };
-const mapDispatchToProps = { tasksGet, taskDelete };
+const mapDispatchToProps = { tasksGet, taskDelete, taskUpdate };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tasks);

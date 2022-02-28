@@ -5,18 +5,6 @@
       "description": "Test Description",
       "completed": false,
       "id": 1
-    },
-    {
-      "title": "Deneme",
-      "description": "Deneme",
-      "completed": true,
-      "id": 2
-    },
-    {
-      "title": "enes",
-      "description": "duman",
-      "completed": true,
-      "id": 3
     }
   ]
 }

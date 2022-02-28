@@ -1,10 +1,9 @@
 import React from "react";
 import { Button, CardHeader } from "@mui/material";
 import { changeLanguage } from "../redux/actions/languageActions";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 
 const Header = (props) => {
-  const dispatch = useDispatch();
   return (
     <>
       <div
@@ -19,8 +18,7 @@ const Header = (props) => {
         <Button
           onClick={() => {
             props.changeLanguage(
-              props.languageReducer.language == "EN" ? "TR" : "EN",
-              dispatch
+              props.languageReducer.language == "EN" ? "TR" : "EN"
             );
           }}
           variant="contained"
