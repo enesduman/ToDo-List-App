@@ -1,0 +1,28 @@
+$myFont: Helvetica, sans-serif;
+$primaryColor: #9adcff;
+$succesColor: #c1f4c5;
+$dangerColor: #ff0075;
+$borderColor: #fff1ce;
+
+.dangerColor {
+  color: $dangerColor !important;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $primaryColor;
+}
+.cardDetail {
+  flex-grow: 1;
+}
+.cardDescription {
+  color: $dangerColor;
+}
+.addTaskWrap {
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+}
