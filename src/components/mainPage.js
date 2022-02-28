@@ -1,14 +1,11 @@
 import { Card } from "@mui/material";
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import AddTask from "./addTask";
 import Header from "./header";
 import Tasks from "./tasks";
 
 const MainPage = (props) => {
-  useEffect(() => {
-    console.log(",deneme", props.languageReducer.language);
-  }, [props.languageReducer.language]);
   return (
     <Card
       style={{
